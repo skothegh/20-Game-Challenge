@@ -1,0 +1,7 @@
+Start button (lift from pong)
+Ball starts slaved to paddle
+
+games starts in prep mode in which the player only controls the paddle (and the ball)
+once begun, the flag switches and the player only controls the paddle.
+
+game can be paused. 

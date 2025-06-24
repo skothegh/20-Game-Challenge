@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cah2afubn4fvs"]
+
+[ext_resource type="PackedScene" uid="uid://c0233c6dqxrkf" path="res://scenes/boundary.tscn" id="1_3yrx8"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_p3cn8"]
+[ext_resource type="PackedScene" uid="uid://b2vw8yj2u8sh0" path="res://scenes/Paddle.tscn" id="2_a4xll"]
+[ext_resource type="PackedScene" uid="uid://dj6d7khbqd0c" path="res://scenes/ball.tscn" id="3_t824e"]
+[ext_resource type="PackedScene" uid="uid://wbeqwf4t08bf" path="res://scenes/brickmanager.tscn" id="5_ur2dl"]
+[ext_resource type="PackedScene" uid="uid://b6c06betj1eqe" path="res://scenes/hud.tscn" id="6_bn7bi"]
+[ext_resource type="PackedScene" uid="uid://dyga8bgav06da" path="res://scenes/high_score_manager.tscn" id="7_5iosg"]
+
+[sub_resource type="GDScript" id="GDScript_f10kc"]
+script/source = "extends Node
+
+
+# END
+"
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_p3cn8")
+
+[node name="Boundary" parent="." instance=ExtResource("1_3yrx8")]
+script = SubResource("GDScript_f10kc")
+
+[node name="Paddle" parent="." instance=ExtResource("2_a4xll")]
+
+[node name="Ball" parent="." instance=ExtResource("3_t824e")]
+
+[node name="brickmanager" parent="." instance=ExtResource("5_ur2dl")]
+
+[node name="HUD" parent="." instance=ExtResource("6_bn7bi")]
+process_mode = 1
+
+[node name="level_reset_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="HighScoreManager" parent="." instance=ExtResource("7_5iosg")]
+
+[connection signal="died" from="Ball" to="." method="_on_ball_died"]
+[connection signal="brick_destoyed" from="brickmanager" to="." method="_on_brickmanager_brick_destoyed"]
+[connection signal="level_complete" from="brickmanager" to="." method="_on_brickmanager_level_complete"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="timeout" from="level_reset_timer" to="." method="_on_level_reset_timer_timeout"]
+[connection signal="input_done" from="HighScoreManager" to="." method="_on_high_score_manager_input_done"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bypri4tt235hv"]
+
+[ext_resource type="Texture2D" uid="uid://dug1687bplige" path="res://assets/separator.png" id="1_45ncf"]
+[ext_resource type="Script" path="res://scripts/separator.gd" id="2_kqm2t"]
+
+[node name="Separator" type="Sprite2D"]
+position = Vector2(320, 200)
+texture = ExtResource("1_45ncf")
+script = ExtResource("2_kqm2t")

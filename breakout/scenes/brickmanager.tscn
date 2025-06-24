@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://wbeqwf4t08bf"]
+
+[ext_resource type="Script" path="res://scripts/brickmanager.gd" id="1_doxk5"]
+[ext_resource type="PackedScene" uid="uid://bjd3o2h75yv1r" path="res://scenes/brick.tscn" id="2_m1k5e"]
+
+[node name="brickmanager" type="Node"]
+script = ExtResource("1_doxk5")
+brick_scene = ExtResource("2_m1k5e")

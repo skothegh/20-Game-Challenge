@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf7dsdstvqiju"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_6jwta"]
+[ext_resource type="FontFile" uid="uid://cmf3h46wsvwvw" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_cetnc"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_6jwta")
+
+[node name="Player_1_Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_right = -80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player_2_score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 80.0
+offset_right = 120.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 32
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -108.5
+offset_right = 20.0
+offset_bottom = -85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 32
+text = "Let's Play Pong!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial_1" type="Label" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -24.5
+offset_right = -60.0
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 16
+text = "Up:      pg up
+Down: pg dn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial_2" type="Label" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -24.5
+offset_right = 133.0
+offset_bottom = 18.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 16
+text = "Up:     W
+Down: S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause_Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -60.0
+offset_right = 94.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 16
+text = "SPACE for Run/Pause"
+
+[node name="player_1_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 32
+text = "1 Player"
+
+[node name="player_2_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = 30.5
+offset_right = 73.5
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cetnc")
+theme_override_font_sizes/font_size = 32
+text = "2 Player"
+
+[connection signal="pressed" from="player_1_button" to="." method="_on_player_1_button_pressed"]
+[connection signal="pressed" from="player_2_button" to="." method="_on_player_2_button_pressed"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bphj4jbrrv40f"]
+
+[ext_resource type="PackedScene" uid="uid://bypri4tt235hv" path="res://scenes/separator.tscn" id="1_dcxe8"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_ixrpx"]
+[ext_resource type="PackedScene" uid="uid://dn8wtyyepgntw" path="res://scenes/paddle.tscn" id="2_ejkva"]
+[ext_resource type="PackedScene" uid="uid://b43i56yw7w1ux" path="res://scenes/ball.tscn" id="3_y6tch"]
+[ext_resource type="PackedScene" uid="uid://djw37jyyknepc" path="res://scenes/ai_paddle.tscn" id="4_hn16p"]
+[ext_resource type="PackedScene" uid="uid://cf7dsdstvqiju" path="res://scenes/hud.tscn" id="4_lfuak"]
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_ixrpx")
+ball_scene = ExtResource("3_y6tch")
+paddle_scene = ExtResource("2_ejkva")
+ai_scene = ExtResource("4_hn16p")
+
+[node name="ball_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Separator" parent="." instance=ExtResource("1_dcxe8")]
+
+[node name="HUD" parent="." instance=ExtResource("4_lfuak")]
+
+[connection signal="timeout" from="ball_timer" to="." method="_on_timer_timeout"]
+[connection signal="start_1_player_game" from="HUD" to="." method="_on_hud_start_1_player_game"]
+[connection signal="start_2_player_game" from="HUD" to="." method="_on_hud_start_2_player_game"]

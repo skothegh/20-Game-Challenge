@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0233c6dqxrkf"]
+
+[node name="Boundary" type="Node"]
+
+[node name="Top2" type="ColorRect" parent="."]
+offset_left = 4.0
+offset_right = 616.0
+offset_bottom = 4.0
+color = Color(0, 1, 0, 1)
+
+[node name="Left2" type="ColorRect" parent="."]
+offset_right = 4.0
+offset_bottom = 400.0
+color = Color(0, 1, 0, 1)
+
+[node name="Right2" type="ColorRect" parent="."]
+offset_left = 616.0
+offset_right = 620.0
+offset_bottom = 400.0
+color = Color(0, 1, 0, 1)
